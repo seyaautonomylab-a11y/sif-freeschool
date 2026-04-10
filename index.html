@@ -1755,8 +1755,8 @@
     renderCal();
   })();
 
-  /* Form validation */
-  document.getElementById('taiken-form').addEventListener('submit', function(e) {
+  /* Form validation & submit (Web3Forms) */
+  document.getElementById('taiken-form').addEventListener('submit', async function(e) {
     e.preventDefault();
     var valid = true;
     function check(id, errId, testFn) {
@@ -1771,13 +1771,53 @@
     check('v2-email', 'err-email', v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v));
     check('v2-date', 'err-date', v => v.length > 0);
     if (!valid) return;
+
     var btn = this.querySelector('.form-submit');
     btn.textContent = '送信中...';
     btn.disabled = true;
-    setTimeout(function() {
-      btn.textContent = '✅ 送信完了！3営業日以内にご連絡します';
-      btn.style.background = '#27AE60';
-    }, 1200);
+
+    var name  = document.getElementById('v2-name').value.trim();
+    var grade = document.getElementById('v2-grade').value.trim();
+    var email = document.getElementById('v2-email').value.trim();
+    var date  = document.getElementById('v2-date').value.trim();
+    var note  = document.getElementById('v2-note').value.trim();
+
+    var message = [
+      '【SIFフリースクール 無料体験申し込み】',
+      '━━━━━━━━━━━━━━━━━━━━━━━━',
+      'お子さんのお名前（フリガナ）：' + name,
+      '学年・年齢：' + grade,
+      '保護者メールアドレス：' + email,
+      '希望体験日：' + date,
+      'その他・質問：' + (note || 'なし'),
+      '━━━━━━━━━━━━━━━━━━━━━━━━',
+      '3営業日以内に保護者様へご連絡ください。',
+    ].join('\n');
+
+    var payload = new FormData();
+    payload.append('access_key', '86e0b2ec-35ed-4a13-9cd9-7188d149d6b0');
+    payload.append('subject', '【SIFフリースクール】体験申し込みが届きました（' + name + ' さん）');
+    payload.append('from_name', 'SIFフリースクール 申し込みフォーム');
+    payload.append('replyto', email);
+    payload.append('message', message);
+
+    try {
+      var res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: payload });
+      var json = await res.json();
+      if (json.success) {
+        btn.textContent = '✅ 送信完了！3営業日以内にご連絡します';
+        btn.style.background = '#27AE60';
+        document.getElementById('taiken-form').reset();
+      } else {
+        btn.textContent = '送信に失敗しました。お電話でご連絡ください。';
+        btn.style.background = '#e53935';
+        btn.disabled = false;
+      }
+    } catch(err) {
+      btn.textContent = '送信に失敗しました。お電話でご連絡ください。';
+      btn.style.background = '#e53935';
+      btn.disabled = false;
+    }
   });
 </script>
 </body>
