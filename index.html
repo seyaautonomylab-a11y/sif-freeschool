@@ -679,6 +679,45 @@
     /* ===========================
        SECTION: FLOW
     =========================== */
+    .flow-info-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+    .flow-info-card {
+      background: #f8f8f8;
+      border-radius: var(--radius-lg);
+      padding: 20px 24px;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .flow-info-card__icon { font-size: 22px; flex-shrink: 0; }
+    .flow-info-card__label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .15em;
+      color: var(--orange);
+      margin-bottom: 4px;
+    }
+    .flow-info-card__title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 4px;
+    }
+    .flow-info-card__text {
+      font-size: 13px;
+      color: #555;
+      line-height: 1.8;
+    }
+    .flow-info-card__text--steps {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
     .flow-steps {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -1825,51 +1864,42 @@
       <div class="divider"></div>
     </div>
 
-    <!-- 開催情報 -->
-    <div class="reveal" style="display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-bottom:32px;">
-      <div style="background:var(--dark);color:var(--white);border-radius:var(--radius-lg);padding:18px 28px;text-align:center;">
-        <div style="font-size:11px;letter-spacing:.15em;color:rgba(255,255,255,.5);margin-bottom:6px;">開催日時</div>
-        <div style="font-size:18px;font-weight:700;font-family:var(--serif);">毎週火曜日 17:15〜18:45</div>
-      </div>
-      <div style="background:var(--orange-light);border:1.5px solid rgba(244,123,32,.3);border-radius:var(--radius-lg);padding:18px 28px;text-align:center;">
-        <div style="font-size:11px;letter-spacing:.15em;color:var(--orange);margin-bottom:6px;">参加費用</div>
-        <div style="font-size:18px;font-weight:700;font-family:var(--serif);">8,000円<span style="font-size:13px;color:#666;">（4回チケット）</span></div>
-      </div>
-    </div>
+    <!-- 開催情報・料金・申し込み後の流れ -->
+    <div class="flow-info-cards reveal">
 
-    <!-- 開催場所 -->
-    <div class="reveal" style="background:#f8f8f8;border-radius:var(--radius-lg);padding:20px 24px;margin-bottom:20px;display:flex;gap:14px;align-items:flex-start;">
-      <span style="font-size:22px;flex-shrink:0;">📍</span>
-      <div>
-        <div style="font-size:11px;font-weight:700;letter-spacing:.15em;color:var(--orange);margin-bottom:4px;">開催場所</div>
-        <div style="font-size:15px;font-weight:700;color:var(--dark);margin-bottom:4px;">森川ビル2階</div>
-        <div style="font-size:13px;color:#555;line-height:1.7;">神奈川県横浜市瀬谷区瀬谷4丁目7-10<br>🚶 相鉄線・瀬谷駅 徒歩3分</div>
-        <a href="https://maps.google.com/?q=神奈川県横浜市瀬谷区瀬谷4丁目7-10+森川ビル" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font-size:12px;color:var(--orange);text-decoration:none;font-weight:700;">Google マップで見る →</a>
-      </div>
-    </div>
-
-    <!-- 料金説明 -->
-    <div class="reveal" style="background:#f8f8f8;border-radius:var(--radius-lg);padding:20px 24px;margin-bottom:20px;display:flex;gap:14px;align-items:flex-start;">
-      <span style="font-size:22px;flex-shrink:0;">💴</span>
-      <div>
-        <div style="font-size:11px;font-weight:700;letter-spacing:.15em;color:var(--orange);margin-bottom:4px;">料金について</div>
-        <div style="font-size:15px;font-weight:700;color:var(--dark);margin-bottom:4px;">8,000円 ＝ 参加チケット4回分</div>
-        <div style="font-size:13px;color:#555;line-height:1.7;">フリースクール開催日（毎週火曜）に使える<br>参加チケット4回分のセットです。<br>まずは2回、<strong>無料</strong>でお試しいただけます。</div>
-      </div>
-    </div>
-
-    <!-- 申し込み後の流れ -->
-    <div class="reveal" style="background:#f8f8f8;border-radius:var(--radius-lg);padding:20px 24px;margin-bottom:48px;display:flex;gap:14px;align-items:flex-start;">
-      <span style="font-size:22px;flex-shrink:0;">📧</span>
-      <div>
-        <div style="font-size:11px;font-weight:700;letter-spacing:.15em;color:var(--orange);margin-bottom:4px;">申し込み後の流れ</div>
-        <div style="font-size:13px;color:#555;line-height:1.9;">
-          ① フォームを送信<br>
-          ② 担当者よりメールにてご連絡（3営業日以内）<br>
-          ③ 体験日・詳細のご案内<br>
-          ④ 当日、瀬谷インターナショナルクラブハウスへお越しください
+      <div class="flow-info-card">
+        <span class="flow-info-card__icon">📅</span>
+        <div>
+          <div class="flow-info-card__label">開催日時</div>
+          <div class="flow-info-card__title">毎週火曜日 17:15〜18:45</div>
         </div>
       </div>
+
+      <div class="flow-info-card">
+        <span class="flow-info-card__icon">💴</span>
+        <div>
+          <div class="flow-info-card__label">料金について</div>
+          <div class="flow-info-card__title">8,000円 ＝ 参加チケット4回分</div>
+          <div class="flow-info-card__text">フリースクール開催日（毎週火曜）に使える参加チケット4回分のセットです。まずは2回、<strong>無料</strong>でお試しいただけます。</div>
+        </div>
+      </div>
+
+      <div class="flow-info-card">
+        <span class="flow-info-card__icon">📧</span>
+        <div>
+          <div class="flow-info-card__label">申し込み後の流れ</div>
+          <div class="flow-info-card__text flow-info-card__text--steps">
+            <span>① フォームを送信</span>
+            <span>② 担当者よりメールにてご連絡（3営業日以内）</span>
+            <span>③ 体験日・詳細のご案内</span>
+            <span>④ 当日、瀬谷インターナショナルクラブハウス（森川ビル2階）へお越しください<br>
+              <span style="font-size:12px;color:#777;">神奈川県横浜市瀬谷区瀬谷4丁目7-10 ／ 相鉄線・瀬谷駅 徒歩3分</span><br>
+              <a href="https://maps.google.com/?q=神奈川県横浜市瀬谷区瀬谷4丁目7-10+森川ビル" target="_blank" rel="noopener" style="font-size:12px;color:var(--orange);font-weight:700;">Google マップで見る →</a>
+            </span>
+          </div>
+        </div>
+      </div>
+
     </div>
 
     <div class="flow-steps reveal">
