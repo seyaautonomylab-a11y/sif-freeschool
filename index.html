@@ -717,6 +717,13 @@
       flex-direction: column;
       gap: 6px;
     }
+    .flow-info-card--dark {
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.1);
+    }
+    .flow-info-card--dark .flow-info-card__label { color: var(--orange); }
+    .flow-info-card--dark .flow-info-card__title { color: var(--white); }
+    .flow-info-card--dark .flow-info-card__text { color: rgba(255,255,255,.7); }
 
     .flow-steps {
       display: grid;
@@ -1188,7 +1195,7 @@
   <div class="navbar__inner">
     <div class="navbar__logo">SIF_<span>フリースクール</span></div>
     <nav class="navbar__links">
-      <a href="#about">SIFとは</a>
+      <a href="#about">SIFフリースクールとは</a>
       <a href="#skills">育成スキル</a>
       <a href="#flow">活動の流れ</a>
       <a href="#curriculum">コンテンツ</a>
@@ -1344,7 +1351,7 @@
         <div class="feature-card__num">01 — 遊びが最高の学びになる</div>
         <div class="feature-card__title">「本気で遊ぶ」から<br>本当の力が育つ</div>
         <div class="feature-card__text">
-          ゲームだから油断できない。<br class="br-sp">大人も本気でやってくる。<br class="br-sp">そのリアルな緊張感が、<br class="br-sp">「考えなければならない」場面を<br class="br-sp">次々に生み出します。<br class="br-sp">楽しいのに、気づいたら力がついている——<br class="br-sp">それがSIFの仕掛けです。
+          ゲームだから油断できない。<br class="br-sp">大人も本気でやってくる。<br class="br-sp">そのリアルな緊張感が、<br class="br-sp">「考えなければならない」場面を<br class="br-sp">次々に生み出します。<br class="br-sp">楽しいのに、気づいたら力がついている——<br class="br-sp">それがSIFフリースクールの仕掛けです。
         </div>
         <div class="feature-card__tags">
           <span class="tag">本気の遊び</span>
@@ -1472,7 +1479,7 @@
             <span class="skill-acc-item__icon">+</span>
           </div>
           <div class="skill-acc-item__body">
-            <p class="skill-acc-item__desc">チームの目標を共有し、役割分担と信頼関係を築く力。異なる世代・個性が混ざるSIFの場で、自然と身につきます。</p>
+            <p class="skill-acc-item__desc">チームの目標を共有し、役割分担と信頼関係を築く力。異なる世代・個性が混ざるSIFフリースクールの場で、自然と身につきます。</p>
           </div>
         </div>
 
@@ -1890,44 +1897,6 @@
       <div class="divider"></div>
     </div>
 
-    <!-- 開催情報・料金・申し込み後の流れ -->
-    <div class="flow-info-cards reveal">
-
-      <div class="flow-info-card">
-        <span class="flow-info-card__icon">📅</span>
-        <div>
-          <div class="flow-info-card__label">開催日時</div>
-          <div class="flow-info-card__title">毎週火曜日 17:15〜18:45</div>
-        </div>
-      </div>
-
-      <div class="flow-info-card">
-        <span class="flow-info-card__icon">💴</span>
-        <div>
-          <div class="flow-info-card__label">料金について</div>
-          <div class="flow-info-card__title">8,000円 ＝ 参加チケット4回分</div>
-          <div class="flow-info-card__text">フリースクール開催日（毎週火曜）に使える参加チケット4回分のセットです。まずは2回、<strong>無料</strong>でお試しいただけます。</div>
-        </div>
-      </div>
-
-      <div class="flow-info-card">
-        <span class="flow-info-card__icon">📧</span>
-        <div>
-          <div class="flow-info-card__label">申し込み後の流れ</div>
-          <div class="flow-info-card__text flow-info-card__text--steps">
-            <span>① フォームを送信</span>
-            <span>② 担当者よりメールにてご連絡（3営業日以内）</span>
-            <span>③ 体験日・詳細のご案内</span>
-            <span>④ 当日、瀬谷インターナショナルクラブハウス（森川ビル2階）へお越しください<br>
-              <span style="font-size:12px;color:#777;">神奈川県横浜市瀬谷区瀬谷4丁目7-10 ／ 相鉄線・瀬谷駅 徒歩3分</span><br>
-              <a href="https://maps.google.com/?q=神奈川県横浜市瀬谷区瀬谷4丁目7-10+森川ビル" target="_blank" rel="noopener" style="font-size:12px;color:var(--orange);font-weight:700;">Google マップで見る →</a>
-            </span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
     <div class="flow-steps reveal">
       <div class="flow-step">
         <div class="flow-step__num">01</div>
@@ -2088,10 +2057,47 @@
       <h2 class="section-title section-title--white">まずは2回、<br>無料で体験してみてください</h2>
       <div class="divider"></div>
       <p class="section-lead section-lead--white">
-        無料体験は2回まで受けられます。<br class="br-sp">90分のセッションで、<br>お子さんの可能性が広がる瞬間を<br class="br-sp">一緒に体感しましょう。<br>
-        毎週火曜日 17:15〜18:45 開催<br class="br-sp"> ／ 8,000円（4回）
+        無料体験は2回まで受けられます。<br class="br-sp">90分のセッションで、<br>お子さんの可能性が広がる瞬間を<br class="br-sp">一緒に体感しましょう。
       </p>
       <div class="scarcity reveal">⚠️ 募集定員10名・残りわずか</div>
+    </div>
+
+    <!-- 開催情報・料金・申し込み後の流れ -->
+    <div class="flow-info-cards reveal" style="margin-bottom:40px;">
+
+      <div class="flow-info-card flow-info-card--dark">
+        <span class="flow-info-card__icon">📅</span>
+        <div>
+          <div class="flow-info-card__label">開催日時</div>
+          <div class="flow-info-card__title">毎週火曜日 17:15〜18:45</div>
+        </div>
+      </div>
+
+      <div class="flow-info-card flow-info-card--dark">
+        <span class="flow-info-card__icon">💴</span>
+        <div>
+          <div class="flow-info-card__label">料金について</div>
+          <div class="flow-info-card__title">8,000円 ＝ 参加チケット4回分</div>
+          <div class="flow-info-card__text">フリースクール開催日（毎週火曜）に使える参加チケット4回分のセットです。まずは2回、<strong style="color:#fff;">無料</strong>でお試しいただけます。</div>
+        </div>
+      </div>
+
+      <div class="flow-info-card flow-info-card--dark">
+        <span class="flow-info-card__icon">📧</span>
+        <div>
+          <div class="flow-info-card__label">申し込み後の流れ</div>
+          <div class="flow-info-card__text flow-info-card__text--steps">
+            <span>① フォームを送信</span>
+            <span>② 担当者よりメールにてご連絡（3営業日以内）</span>
+            <span>③ 体験日・詳細のご案内</span>
+            <span>④ 当日、瀬谷インターナショナルクラブハウス（森川ビル2階）へお越しください<br>
+              <span style="font-size:12px;color:rgba(255,255,255,.5);">神奈川県横浜市瀬谷区瀬谷4丁目7-10 ／ 相鉄線・瀬谷駅 徒歩3分</span><br>
+              <a href="https://maps.google.com/?q=神奈川県横浜市瀬谷区瀬谷4丁目7-10+森川ビル" target="_blank" rel="noopener" style="font-size:12px;color:var(--orange);font-weight:700;">Google マップで見る →</a>
+            </span>
+          </div>
+        </div>
+      </div>
+
     </div>
 
     <!-- カレンダー -->
