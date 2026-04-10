@@ -1645,7 +1645,7 @@
         <div class="form-field">
           <label class="form-label" for="v2-email">保護者のメールアドレス<span class="form-req">*</span></label>
           <input class="form-input" id="v2-email" name="email" type="email" placeholder="example@email.com" required>
-          <div class="form-error" id="err-email">正しいメールアドレスを入力してください</div>
+          <div class="form-error" id="err-email">メールアドレスを入力してください</div>
         </div>
         <div class="form-field">
           <label class="form-label" for="v2-date">希望体験日（第1・第2希望）<span class="form-req">*</span></label>
@@ -1768,7 +1768,7 @@
     }
     check('v2-name', 'err-name', v => v.length > 0);
     check('v2-grade', 'err-grade', v => v.length > 0);
-    check('v2-email', 'err-email', v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v));
+    check('v2-email', 'err-email', v => v.length > 0);
     check('v2-date', 'err-date', v => v.length > 0);
     if (!valid) return;
 
