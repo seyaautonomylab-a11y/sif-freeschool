@@ -562,26 +562,31 @@
        20 SKILLS ACCORDION
     =========================== */
     .skill-acc { margin-top: 48px; }
-    .skill-acc__intro {
-      text-align: center;
-      font-size: 14px;
-      color: rgba(255,255,255,.6);
-      margin-bottom: 24px;
-      line-height: 1.8;
-    }
-    .skill-acc__toggle-all {
-      display: block;
-      margin: 0 auto 20px;
+    .skill-acc__master-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
       background: transparent;
-      border: 1px solid rgba(255,255,255,.3);
-      color: rgba(255,255,255,.7);
+      border: 1px solid rgba(255,255,255,.2);
+      color: rgba(255,255,255,.6);
       font-size: 13px;
-      padding: 8px 24px;
+      padding: 12px 24px;
       border-radius: 99px;
       cursor: pointer;
       transition: var(--transition);
+      margin-bottom: 0;
     }
-    .skill-acc__toggle-all:hover { background: rgba(255,255,255,.1); color: #fff; }
+    .skill-acc__master-btn:hover { border-color: var(--orange); color: var(--orange); }
+    .skill-acc__master-btn .acc-arrow { transition: transform .3s ease; font-size:11px; }
+    .skill-acc__master-btn.open .acc-arrow { transform: rotate(180deg); }
+    .skill-acc__panel {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .5s ease;
+    }
+    .skill-acc__panel.open { max-height: 9999px; }
     .skill-acc-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -1375,8 +1380,12 @@
 
     <!-- 20のスキル アコーディオン -->
     <div class="skill-acc reveal">
-      <p class="skill-acc__intro">SIFフリースクールでは、遊びを通じて以下の<strong style="color:#fff;">20のスキル</strong>を育てます。<br class="br-sp">気になる項目をタップして詳細をご覧ください。</p>
-      <button class="skill-acc__toggle-all" id="skillToggleAll" onclick="toggleAllSkills()">▼ すべて展開して見る</button>
+      <button class="skill-acc__master-btn" id="skillMasterBtn" onclick="toggleSkillPanel()">
+        <span>📋 育成する20のスキルを詳しく見る</span>
+        <span class="acc-arrow">▼</span>
+      </button>
+      <div class="skill-acc__panel" id="skillPanel">
+        <p style="text-align:center;font-size:13px;color:rgba(255,255,255,.5);margin:20px 0 16px;line-height:1.8;">気になる項目をタップして説明を見る</p>
       <div class="skill-acc-grid" id="skillAccGrid">
 
         <div class="skill-acc-item" onclick="toggleSkillAcc(this)">
@@ -1600,6 +1609,7 @@
         </div>
 
       </div>
+      </div><!-- /.skill-acc__panel -->
     </div>
 
   </div>
@@ -2119,15 +2129,15 @@
   function toggleSkillAcc(item) {
     item.classList.toggle('open');
   }
-  function toggleAllSkills() {
-    var items = document.querySelectorAll('.skill-acc-item');
-    var btn = document.getElementById('skillToggleAll');
-    var anyOpen = Array.from(items).some(i => i.classList.contains('open'));
-    items.forEach(function(i) {
-      if (anyOpen) i.classList.remove('open');
-      else i.classList.add('open');
-    });
-    btn.textContent = anyOpen ? '▼ すべて展開して見る' : '▲ すべて閉じる';
+  function toggleSkillPanel() {
+    var panel = document.getElementById('skillPanel');
+    var btn = document.getElementById('skillMasterBtn');
+    panel.classList.toggle('open');
+    btn.classList.toggle('open');
+    var label = btn.querySelector('span:first-child');
+    label.textContent = panel.classList.contains('open')
+      ? '📋 育成する20のスキルを閉じる'
+      : '📋 育成する20のスキルを詳しく見る';
   }
 
   /* Form validation & submit (Web3Forms) */
