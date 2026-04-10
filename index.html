@@ -562,6 +562,39 @@
        20 SKILLS ACCORDION
     =========================== */
     .skill-acc { margin-top: 48px; }
+    /* Section collapsible (shared) */
+    .sec-toggle-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin: 0 auto 0;
+      padding: 12px 28px;
+      border-radius: 99px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition);
+      border: 1.5px solid rgba(255,255,255,.25);
+      background: transparent;
+      color: rgba(255,255,255,.7);
+    }
+    .sec-toggle-btn:hover { border-color: var(--orange); color: var(--orange); }
+    .sec-toggle-btn .arrow { transition: transform .3s ease; font-size: 11px; }
+    .sec-toggle-btn.open .arrow { transform: rotate(180deg); }
+    .sec-panel {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .5s ease;
+    }
+    .sec-panel.open { max-height: 9999px; }
+    /* Light version for white/off-white sections */
+    .sec-toggle-btn--light {
+      border-color: rgba(0,0,0,.15);
+      color: #555;
+    }
+    .sec-toggle-btn--light:hover { border-color: var(--orange); color: var(--orange); }
+
     .skill-acc__master-btn {
       display: flex;
       align-items: center;
@@ -1341,6 +1374,14 @@
       </p>
     </div>
 
+    <div class="text-center reveal" style="margin-top:28px;">
+      <button class="sec-toggle-btn" id="skillsToggle" onclick="toggleSecPanel('skillsToggle','skillsPanel')">
+        <span id="skillsToggleLabel">スキルの詳細を見る</span>
+        <span class="arrow">▼</span>
+      </button>
+    </div>
+    <div class="sec-panel" id="skillsPanel">
+
     <div class="skills-grid">
       <div class="skill-card reveal">
         <div class="skill-card__icon">🧠</div>
@@ -1611,100 +1652,8 @@
       </div>
       </div><!-- /.skill-acc__panel -->
     </div>
+    </div><!-- /.sec-panel skillsPanel -->
 
-  </div>
-</section>
-
-
-<!-- ===== SECTION: FLOW ===== -->
-<section class="section section--off" id="flow">
-  <div class="container">
-    <div class="text-center reveal">
-      <div class="section-label">HOW — 活動の流れ</div>
-      <h2 class="section-title">1日の流れ<br class="br-sp">（2セッション in 90min）</h2>
-      <div class="divider"></div>
-    </div>
-
-    <!-- 開催情報 -->
-    <div class="reveal" style="display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-bottom:32px;">
-      <div style="background:var(--dark);color:var(--white);border-radius:var(--radius-lg);padding:18px 28px;text-align:center;">
-        <div style="font-size:11px;letter-spacing:.15em;color:rgba(255,255,255,.5);margin-bottom:6px;">開催日時</div>
-        <div style="font-size:18px;font-weight:700;font-family:var(--serif);">毎週火曜日 17:15〜18:45</div>
-      </div>
-      <div style="background:var(--orange-light);border:1.5px solid rgba(244,123,32,.3);border-radius:var(--radius-lg);padding:18px 28px;text-align:center;">
-        <div style="font-size:11px;letter-spacing:.15em;color:var(--orange);margin-bottom:6px;">参加費用</div>
-        <div style="font-size:18px;font-weight:700;font-family:var(--serif);">8,000円<span style="font-size:13px;color:#666;">（4回チケット）</span></div>
-      </div>
-    </div>
-
-    <!-- 開催場所 -->
-    <div class="reveal" style="background:#f8f8f8;border-radius:var(--radius-lg);padding:20px 24px;margin-bottom:20px;display:flex;gap:14px;align-items:flex-start;">
-      <span style="font-size:22px;flex-shrink:0;">📍</span>
-      <div>
-        <div style="font-size:11px;font-weight:700;letter-spacing:.15em;color:var(--orange);margin-bottom:4px;">開催場所</div>
-        <div style="font-size:15px;font-weight:700;color:var(--dark);margin-bottom:4px;">森川ビル2階</div>
-        <div style="font-size:13px;color:#555;line-height:1.7;">神奈川県横浜市瀬谷区瀬谷4丁目7-10<br>🚶 相鉄線・瀬谷駅 徒歩3分</div>
-        <a href="https://maps.google.com/?q=神奈川県横浜市瀬谷区瀬谷4丁目7-10+森川ビル" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font-size:12px;color:var(--orange);text-decoration:none;font-weight:700;">Google マップで見る →</a>
-      </div>
-    </div>
-
-    <!-- 料金説明 -->
-    <div class="reveal" style="background:#f8f8f8;border-radius:var(--radius-lg);padding:20px 24px;margin-bottom:20px;display:flex;gap:14px;align-items:flex-start;">
-      <span style="font-size:22px;flex-shrink:0;">💴</span>
-      <div>
-        <div style="font-size:11px;font-weight:700;letter-spacing:.15em;color:var(--orange);margin-bottom:4px;">料金について</div>
-        <div style="font-size:15px;font-weight:700;color:var(--dark);margin-bottom:4px;">8,000円 ＝ 参加チケット4回分</div>
-        <div style="font-size:13px;color:#555;line-height:1.7;">フリースクール開催日（毎週火曜）に使える<br>参加チケット4回分のセットです。<br>まずは2回、<strong>無料</strong>でお試しいただけます。</div>
-      </div>
-    </div>
-
-    <!-- 申し込み後の流れ -->
-    <div class="reveal" style="background:#f8f8f8;border-radius:var(--radius-lg);padding:20px 24px;margin-bottom:48px;display:flex;gap:14px;align-items:flex-start;">
-      <span style="font-size:22px;flex-shrink:0;">📧</span>
-      <div>
-        <div style="font-size:11px;font-weight:700;letter-spacing:.15em;color:var(--orange);margin-bottom:4px;">申し込み後の流れ</div>
-        <div style="font-size:13px;color:#555;line-height:1.9;">
-          ① フォームを送信<br>
-          ② 担当者よりメールにてご連絡（3営業日以内）<br>
-          ③ 体験日・詳細のご案内<br>
-          ④ 当日、瀬谷インターナショナルクラブハウスへお越しください
-        </div>
-      </div>
-    </div>
-
-    <div class="flow-steps reveal">
-      <div class="flow-step">
-        <div class="flow-step__num">01</div>
-        <div class="flow-step__title">遊びを選ぶ</div>
-        <div class="flow-step__desc">30種類以上の中から自分がやりたいものを選択</div>
-      </div>
-      <div class="flow-step">
-        <div class="flow-step__num">02</div>
-        <div class="flow-step__title">セッション1（約40分）</div>
-        <div class="flow-step__desc">目標を設定し、世代を超えて本気でプレイ</div>
-      </div>
-      <div class="flow-step">
-        <div class="flow-step__num">03</div>
-        <div class="flow-step__title">セッション2（約40分）</div>
-        <div class="flow-step__desc">別の役割・ゲームに挑戦。子どもが先生になる瞬間</div>
-      </div>
-      <div class="flow-step">
-        <div class="flow-step__num">04</div>
-        <div class="flow-step__title">振り返り（約10分）</div>
-        <div class="flow-step__desc">「今日できたこと」を言語化。成長の実感が次への意欲に</div>
-      </div>
-    </div>
-
-    <div class="flow-timeline reveal">
-      <span class="flow-timeline__label">90分の流れ（毎週火曜 17:15〜18:45）</span>
-      <span class="time-tag">17:15 遊び選択</span>
-      <span class="time-arrow">→</span>
-      <span class="time-tag time-tag--orange">セッション1（〜17:55）</span>
-      <span class="time-arrow">→</span>
-      <span class="time-tag time-tag--orange">セッション2（〜18:35）</span>
-      <span class="time-arrow">→</span>
-      <span class="time-tag">振り返り（〜18:45）</span>
-    </div>
   </div>
 </section>
 
@@ -1721,6 +1670,14 @@
         遊んでいるだけで、自然と力がつく仕組みです。
       </p>
     </div>
+
+    <div class="text-center reveal" style="margin-top:28px;">
+      <button class="sec-toggle-btn" id="currToggle" onclick="toggleSecPanel('currToggle','currPanel')">
+        <span id="currToggleLabel">コンテンツを見る</span>
+        <span class="arrow">▼</span>
+      </button>
+    </div>
+    <div class="sec-panel" id="currPanel">
 
     <div class="curr-grid reveal">
 
@@ -1844,6 +1801,100 @@
 
     <div class="text-center reveal" style="margin-top:40px;">
       <a href="#cta" class="btn btn-primary">無料体験を申し込む →</a>
+    </div>
+    </div><!-- /.sec-panel currPanel -->
+  </div>
+</section>
+
+
+<!-- ===== SECTION: FLOW ===== -->
+<section class="section section--off" id="flow">
+  <div class="container">
+    <div class="text-center reveal">
+      <div class="section-label">HOW — 活動の流れ</div>
+      <h2 class="section-title">1日の流れ<br class="br-sp">（2セッション in 90min）</h2>
+      <div class="divider"></div>
+    </div>
+
+    <!-- 開催情報 -->
+    <div class="reveal" style="display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-bottom:32px;">
+      <div style="background:var(--dark);color:var(--white);border-radius:var(--radius-lg);padding:18px 28px;text-align:center;">
+        <div style="font-size:11px;letter-spacing:.15em;color:rgba(255,255,255,.5);margin-bottom:6px;">開催日時</div>
+        <div style="font-size:18px;font-weight:700;font-family:var(--serif);">毎週火曜日 17:15〜18:45</div>
+      </div>
+      <div style="background:var(--orange-light);border:1.5px solid rgba(244,123,32,.3);border-radius:var(--radius-lg);padding:18px 28px;text-align:center;">
+        <div style="font-size:11px;letter-spacing:.15em;color:var(--orange);margin-bottom:6px;">参加費用</div>
+        <div style="font-size:18px;font-weight:700;font-family:var(--serif);">8,000円<span style="font-size:13px;color:#666;">（4回チケット）</span></div>
+      </div>
+    </div>
+
+    <!-- 開催場所 -->
+    <div class="reveal" style="background:#f8f8f8;border-radius:var(--radius-lg);padding:20px 24px;margin-bottom:20px;display:flex;gap:14px;align-items:flex-start;">
+      <span style="font-size:22px;flex-shrink:0;">📍</span>
+      <div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:.15em;color:var(--orange);margin-bottom:4px;">開催場所</div>
+        <div style="font-size:15px;font-weight:700;color:var(--dark);margin-bottom:4px;">森川ビル2階</div>
+        <div style="font-size:13px;color:#555;line-height:1.7;">神奈川県横浜市瀬谷区瀬谷4丁目7-10<br>🚶 相鉄線・瀬谷駅 徒歩3分</div>
+        <a href="https://maps.google.com/?q=神奈川県横浜市瀬谷区瀬谷4丁目7-10+森川ビル" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font-size:12px;color:var(--orange);text-decoration:none;font-weight:700;">Google マップで見る →</a>
+      </div>
+    </div>
+
+    <!-- 料金説明 -->
+    <div class="reveal" style="background:#f8f8f8;border-radius:var(--radius-lg);padding:20px 24px;margin-bottom:20px;display:flex;gap:14px;align-items:flex-start;">
+      <span style="font-size:22px;flex-shrink:0;">💴</span>
+      <div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:.15em;color:var(--orange);margin-bottom:4px;">料金について</div>
+        <div style="font-size:15px;font-weight:700;color:var(--dark);margin-bottom:4px;">8,000円 ＝ 参加チケット4回分</div>
+        <div style="font-size:13px;color:#555;line-height:1.7;">フリースクール開催日（毎週火曜）に使える<br>参加チケット4回分のセットです。<br>まずは2回、<strong>無料</strong>でお試しいただけます。</div>
+      </div>
+    </div>
+
+    <!-- 申し込み後の流れ -->
+    <div class="reveal" style="background:#f8f8f8;border-radius:var(--radius-lg);padding:20px 24px;margin-bottom:48px;display:flex;gap:14px;align-items:flex-start;">
+      <span style="font-size:22px;flex-shrink:0;">📧</span>
+      <div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:.15em;color:var(--orange);margin-bottom:4px;">申し込み後の流れ</div>
+        <div style="font-size:13px;color:#555;line-height:1.9;">
+          ① フォームを送信<br>
+          ② 担当者よりメールにてご連絡（3営業日以内）<br>
+          ③ 体験日・詳細のご案内<br>
+          ④ 当日、瀬谷インターナショナルクラブハウスへお越しください
+        </div>
+      </div>
+    </div>
+
+    <div class="flow-steps reveal">
+      <div class="flow-step">
+        <div class="flow-step__num">01</div>
+        <div class="flow-step__title">遊びを選ぶ</div>
+        <div class="flow-step__desc">30種類以上の中から自分がやりたいものを選択</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-step__num">02</div>
+        <div class="flow-step__title">セッション1（約40分）</div>
+        <div class="flow-step__desc">目標を設定し、世代を超えて本気でプレイ</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-step__num">03</div>
+        <div class="flow-step__title">セッション2（約40分）</div>
+        <div class="flow-step__desc">別の役割・ゲームに挑戦。子どもが先生になる瞬間</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-step__num">04</div>
+        <div class="flow-step__title">振り返り（約10分）</div>
+        <div class="flow-step__desc">「今日できたこと」を言語化。成長の実感が次への意欲に</div>
+      </div>
+    </div>
+
+    <div class="flow-timeline reveal">
+      <span class="flow-timeline__label">90分の流れ（毎週火曜 17:15〜18:45）</span>
+      <span class="time-tag">17:15 遊び選択</span>
+      <span class="time-arrow">→</span>
+      <span class="time-tag time-tag--orange">セッション1（〜17:55）</span>
+      <span class="time-arrow">→</span>
+      <span class="time-tag time-tag--orange">セッション2（〜18:35）</span>
+      <span class="time-arrow">→</span>
+      <span class="time-tag">振り返り（〜18:45）</span>
     </div>
   </div>
 </section>
@@ -2056,6 +2107,23 @@
     if (window.scrollY > 600) bar.classList.add('visible');
     else bar.classList.remove('visible');
   });
+
+  /* Section collapsible toggle */
+  function toggleSecPanel(btnId, panelId) {
+    var btn = document.getElementById(btnId);
+    var panel = document.getElementById(panelId);
+    var label = document.getElementById(btnId + 'Label');
+    var isOpen = btn.classList.toggle('open');
+    panel.classList.toggle('open', isOpen);
+    if (label) {
+      var labels = {
+        skillsToggle: ['スキルの詳細を閉じる', 'スキルの詳細を見る'],
+        currToggle: ['コンテンツを閉じる', 'コンテンツを見る']
+      };
+      var pair = labels[btnId];
+      if (pair) label.textContent = isOpen ? pair[0] : pair[1];
+    }
+  }
 
   /* FAQ toggle */
   function toggleFaq(qEl) {
