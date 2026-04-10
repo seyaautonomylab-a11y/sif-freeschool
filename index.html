@@ -807,6 +807,9 @@
     .curr-card__game-name { font-size: 14px; font-weight: 700; color: var(--white); margin-bottom: 4px; }
     .curr-card__game-desc { font-size: 12px; color: rgba(255,255,255,.6); line-height: 1.7; }
     .curr-card__game-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+    .curr-card__thumb { width: 100%; aspect-ratio: 16/9; overflow: hidden; }
+    .curr-card__thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
+    .curr-card:hover .curr-card__thumb img { transform: scale(1.05); }
 
     /* ===========================
        SECTION: GALLERY
@@ -1315,10 +1318,7 @@
     <!-- Card 2 (reverse) -->
     <div class="feature-card feature-card--reverse reveal">
       <div class="feature-card__img">
-        <div class="feature-card__img-placeholder">
-          <div class="ph-icon">🌍</div>
-          <p>小学生・高校生・大人が<br>同じテーブルで遊ぶ写真</p>
-        </div>
+        <img src="LP_写真/マーケティング.png" alt="小学生・高校生・大人が同じテーブルを囲んで活動する様子" onerror="this.parentElement.innerHTML='<div class=\'feature-card__img-placeholder\'><div class=\'ph-icon\'>🌍</div><p>小学生・高校生・大人が<br>同じテーブルで遊ぶ写真</p></div>'">
       </div>
       <div class="feature-card__body">
         <div class="feature-card__num">02 — 世代融合の学習環境</div>
@@ -1339,10 +1339,7 @@
     <!-- Card 3 -->
     <div class="feature-card reveal">
       <div class="feature-card__img">
-        <div class="feature-card__img-placeholder">
-          <div class="ph-icon">💬</div>
-          <p>振り返りで言語化している<br>子どもたちの様子</p>
-        </div>
+        <img src="LP_写真/ディスカッション.png" alt="大人と子どもが対話・振り返りをしている様子" onerror="this.parentElement.innerHTML='<div class=\'feature-card__img-placeholder\'><div class=\'ph-icon\'>💬</div><p>振り返りで言語化している<br>子どもたちの様子</p></div>'">
       </div>
       <div class="feature-card__body">
         <div class="feature-card__num">03 — 言語化で成長を定着</div>
@@ -1683,6 +1680,9 @@
 
       <!-- カードゲーム -->
       <div class="curr-card" onclick="toggleCurrCard(this)">
+        <div class="curr-card__thumb">
+          <img src="LP_写真/カードゲーム.png" alt="カードゲームを楽しむ参加者たち">
+        </div>
         <div class="curr-card__header">
           <div class="curr-card__title">🃏 カードゲーム</div>
           <div class="curr-card__toggle">+</div>
@@ -1717,6 +1717,9 @@
 
       <!-- コミュニケーション -->
       <div class="curr-card" onclick="toggleCurrCard(this)">
+        <div class="curr-card__thumb">
+          <img src="LP_写真/コミュニケーション.png" alt="輪になってコミュニケーションをとる子どもたち">
+        </div>
         <div class="curr-card__header">
           <div class="curr-card__title">🗣️ コミュニケーション</div>
           <div class="curr-card__toggle">+</div>
@@ -1743,6 +1746,9 @@
 
       <!-- ボードゲーム -->
       <div class="curr-card" onclick="toggleCurrCard(this)">
+        <div class="curr-card__thumb">
+          <img src="LP_写真/LP_TOP.png" alt="チェスで対戦する小学生と中高生">
+        </div>
         <div class="curr-card__header">
           <div class="curr-card__title">♟ ボードゲーム</div>
           <div class="curr-card__toggle">+</div>
@@ -1762,6 +1768,9 @@
 
       <!-- タイピング -->
       <div class="curr-card" onclick="toggleCurrCard(this)">
+        <div class="curr-card__thumb">
+          <img src="LP_写真/タイピング.png" alt="PCでタイピング練習をする参加者">
+        </div>
         <div class="curr-card__header">
           <div class="curr-card__title">⌨️ タイピング</div>
           <div class="curr-card__toggle">+</div>
@@ -1912,13 +1921,23 @@
 
     <div class="gallery-grid reveal">
       <div class="gallery-item">
-        <img src="LP_写真/LP_TOP.png" alt="活動の様子" onerror="this.parentElement.innerHTML='<div class=\'gallery-item__ph\'>📸</div>'">
+        <img src="LP_写真/LP_TOP.png" alt="チェスで対戦する小学生と中高生" onerror="this.parentElement.innerHTML='<div class=\'gallery-item__ph\'>📸</div>'">
       </div>
-      <div class="gallery-item"><div class="gallery-item__ph">📸 活動写真</div></div>
-      <div class="gallery-item"><div class="gallery-item__ph">📸 活動写真</div></div>
-      <div class="gallery-item"><div class="gallery-item__ph">📸 活動写真</div></div>
-      <div class="gallery-item"><div class="gallery-item__ph">📸 活動写真</div></div>
-      <div class="gallery-item"><div class="gallery-item__ph">📸 活動写真</div></div>
+      <div class="gallery-item">
+        <img src="LP_写真/カードゲーム.png" alt="カードゲームを楽しむ参加者たち" onerror="this.parentElement.innerHTML='<div class=\'gallery-item__ph\'>📸</div>'">
+      </div>
+      <div class="gallery-item">
+        <img src="LP_写真/コミュニケーション.png" alt="輪になってコミュニケーションをとる子どもたち" onerror="this.parentElement.innerHTML='<div class=\'gallery-item__ph\'>📸</div>'">
+      </div>
+      <div class="gallery-item">
+        <img src="LP_写真/タイピング.png" alt="PCでタイピング練習をする参加者" onerror="this.parentElement.innerHTML='<div class=\'gallery-item__ph\'>📸</div>'">
+      </div>
+      <div class="gallery-item">
+        <img src="LP_写真/ディスカッションver2.png" alt="多世代でディスカッションしている様子" onerror="this.parentElement.innerHTML='<div class=\'gallery-item__ph\'>📸</div>'">
+      </div>
+      <div class="gallery-item">
+        <img src="LP_写真/工作.png" alt="会場での多様な活動の様子" onerror="this.parentElement.innerHTML='<div class=\'gallery-item__ph\'>📸</div>'">
+      </div>
     </div>
 
   </div>
