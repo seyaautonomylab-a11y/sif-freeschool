@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SIF_ フリースクール | 世代を超えた本気の遊びの中から成長し続ける人材を育成する</title>
+  <title>SIFフリースクール | 世代を超えた本気の遊びの中から成長し続ける人材を育成する</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
@@ -693,37 +693,42 @@
       gap: 14px;
       align-items: flex-start;
     }
-    .flow-info-card__icon { font-size: 22px; flex-shrink: 0; }
+    .flow-info-card__icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
     .flow-info-card__label {
+      font-family: 'Noto Sans JP', sans-serif;
       font-size: 11px;
       font-weight: 700;
       letter-spacing: .15em;
+      text-transform: uppercase;
       color: var(--orange);
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
     .flow-info-card__title {
-      font-size: 15px;
+      font-family: var(--serif);
+      font-size: 16px;
       font-weight: 700;
       color: var(--dark);
-      margin-bottom: 4px;
+      line-height: 1.5;
+      margin-bottom: 6px;
     }
     .flow-info-card__text {
-      font-size: 13px;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 14px;
       color: #555;
-      line-height: 1.8;
+      line-height: 1.9;
     }
     .flow-info-card__text--steps {
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 8px;
     }
     .flow-info-card--dark {
       background: rgba(255,255,255,.07);
       border: 1px solid rgba(255,255,255,.1);
     }
     .flow-info-card--dark .flow-info-card__label { color: var(--orange); }
-    .flow-info-card--dark .flow-info-card__title { color: var(--white); }
-    .flow-info-card--dark .flow-info-card__text { color: rgba(255,255,255,.7); }
+    .flow-info-card--dark .flow-info-card__title { color: var(--white); font-family: var(--serif); }
+    .flow-info-card--dark .flow-info-card__text { color: rgba(255,255,255,.75); }
 
     .flow-steps {
       display: grid;
@@ -1193,7 +1198,7 @@
 <!-- ===== NAVBAR ===== -->
 <header class="navbar" id="navbar">
   <div class="navbar__inner">
-    <div class="navbar__logo">SIF_<span>フリースクール</span></div>
+    <div class="navbar__logo">SIF<span>フリースクール</span></div>
     <nav class="navbar__links">
       <a href="#about">SIFフリースクールとは</a>
       <a href="#skills">育成スキル</a>
@@ -1211,7 +1216,7 @@
   <div class="hero__bg"></div>
   <div class="hero__overlay"></div>
   <div class="hero__content">
-    <div class="hero__eyebrow">SIF_ FREESCHOOL</div>
+    <div class="hero__eyebrow">SIF FREESCHOOL</div>
     <h1 class="hero__title">
       世代を超えた<br>
       本気の遊びの中から<br>
@@ -2152,7 +2157,7 @@
 
 <!-- ===== FOOTER ===== -->
 <footer>
-  <p style="font-size:15px;font-weight:700;color:rgba(255,255,255,.6);margin-bottom:12px;">SIF_ フリースクール</p>
+  <p style="font-size:15px;font-weight:700;color:rgba(255,255,255,.6);margin-bottom:12px;">SIFフリースクール</p>
   <p>© 2025 SIF Freeschool. All rights reserved.</p>
 </footer>
 
