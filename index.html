@@ -727,8 +727,21 @@
       border: 1px solid rgba(255,255,255,.1);
     }
     .flow-info-card--dark .flow-info-card__label { color: var(--orange); }
-    .flow-info-card--dark .flow-info-card__title { color: var(--white); font-family: var(--serif); }
-    .flow-info-card--dark .flow-info-card__text { color: rgba(255,255,255,.75); }
+    .flow-info-card--dark .flow-info-card__title {
+      font-family: var(--serif);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.5;
+      margin-bottom: 6px;
+    }
+    .flow-info-card--dark .flow-info-card__text {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 15px;
+      font-weight: 400;
+      color: rgba(255,255,255,.8);
+      line-height: 1.9;
+    }
 
     .flow-steps {
       display: grid;
@@ -1172,7 +1185,7 @@
       .skill-card { padding: 28px 20px; }
       .skill-card__item { display: block; }
       .skill-card__item::before { display: inline; margin-right: 4px; }
-      .navbar__inner { padding: 0 16px; }
+      .navbar__inner { padding: 0 24px; }
       .flow-steps { grid-template-columns: 1fr 1fr; }
       .flow-steps::before { display: none; }
       .curr-grid { grid-template-columns: 1fr 1fr; }
