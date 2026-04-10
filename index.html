@@ -559,6 +559,86 @@
     }
 
     /* ===========================
+       20 SKILLS ACCORDION
+    =========================== */
+    .skill-acc { margin-top: 48px; }
+    .skill-acc__intro {
+      text-align: center;
+      font-size: 14px;
+      color: rgba(255,255,255,.6);
+      margin-bottom: 24px;
+      line-height: 1.8;
+    }
+    .skill-acc__toggle-all {
+      display: block;
+      margin: 0 auto 20px;
+      background: transparent;
+      border: 1px solid rgba(255,255,255,.3);
+      color: rgba(255,255,255,.7);
+      font-size: 13px;
+      padding: 8px 24px;
+      border-radius: 99px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .skill-acc__toggle-all:hover { background: rgba(255,255,255,.1); color: #fff; }
+    .skill-acc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .skill-acc-item {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .skill-acc-item__header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 16px;
+      cursor: pointer;
+      user-select: none;
+    }
+    .skill-acc-item__code {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--orange);
+      flex-shrink: 0;
+      letter-spacing: .05em;
+    }
+    .skill-acc-item__name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--white);
+      flex: 1;
+      line-height: 1.4;
+    }
+    .skill-acc-item__icon {
+      font-size: 16px;
+      color: rgba(255,255,255,.4);
+      flex-shrink: 0;
+      transition: transform .25s ease;
+    }
+    .skill-acc-item.open .skill-acc-item__icon { transform: rotate(45deg); color: var(--orange); }
+    .skill-acc-item__body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .35s ease, padding .25s ease;
+      padding: 0 16px;
+    }
+    .skill-acc-item.open .skill-acc-item__body { max-height: 300px; padding: 0 16px 14px; }
+    .skill-acc-item__desc {
+      font-size: 12px;
+      line-height: 1.8;
+      color: rgba(255,255,255,.6);
+    }
+    @media (max-width: 768px) {
+      .skill-acc-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ===========================
        SECTION: FLOW
     =========================== */
     .flow-steps {
@@ -1292,6 +1372,236 @@
         </div>
       </div>
     </div>
+
+    <!-- 20のスキル アコーディオン -->
+    <div class="skill-acc reveal">
+      <p class="skill-acc__intro">SIFフリースクールでは、遊びを通じて以下の<strong style="color:#fff;">20のスキル</strong>を育てます。<br class="br-sp">気になる項目をタップして詳細をご覧ください。</p>
+      <button class="skill-acc__toggle-all" id="skillToggleAll" onclick="toggleAllSkills()">▼ すべて展開して見る</button>
+      <div class="skill-acc-grid" id="skillAccGrid">
+
+        <div class="skill-acc-item" onclick="toggleSkillAcc(this)">
+          <div class="skill-acc-item__header">
+            <span class="skill-acc-item__code">A01</span>
+            <span class="skill-acc-item__name">チームビルディング</span>
+            <span class="skill-acc-item__icon">+</span>
+          </div>
+          <div class="skill-acc-item__body">
+            <p class="skill-acc-item__desc">チームの目標を共有し、役割分担と信頼関係を築く力。異なる世代・個性が混ざるSIFの場で、自然と身につきます。</p>
+          </div>
+        </div>
+
+        <div class="skill-acc-item" onclick="toggleSkillAcc(this)">
+          <div class="skill-acc-item__header">
+            <span class="skill-acc-item__code">A02</span>
+            <span class="skill-acc-item__name">周囲を巻き込むコミュニケーション</span>
+            <span class="skill-acc-item__icon">+</span>
+          </div>
+          <div class="skill-acc-item__body">
+            <p class="skill-acc-item__desc">自分の考えを伝え、他者を動機づけ、協力を引き出す力。世代を超えたゲームの中で、自然と磨かれます。</p>
+          </div>
+        </div>
+
+        <div class="skill-acc-item" onclick="toggleSkillAcc(this)">
+          <div class="skill-acc-item__header">
+            <span class="skill-acc-item__code">A03</span>
+            <span class="skill-acc-item__name">D&amp;I（多様性＆包摂）</span>
+            <span class="skill-acc-item__icon">+</span>
+          </div>
+          <div class="skill-acc-item__body">
+            <p class="skill-acc-item__desc">異なる世代・背景・価値観を持つ人と共に楽しむ力。小学生が大人と対等に意見を言い合う環境が、この感覚を育てます。</p>
+          </div>
+        </div>
+
+        <div class="skill-acc-item" onclick="toggleSkillAcc(this)">
+          <div class="skill-acc-item__header">
+            <span class="skill-acc-item__code">A04</span>
+            <span class="skill-acc-item__name">エンパワーメント</span>
+            <span class="skill-acc-item__icon">+</span>
+          </div>
+          <div class="skill-acc-item__body">
+            <p class="skill-acc-item__desc">他者の強みを引き出し、自信と主体性を育む力。「あなたの発想はすごい」と認め合う場が、子どもの自己効力感を高めます。</p>
+          </div>
+        </div>
+
+        <div class="skill-acc-item" onclick="toggleSkillAcc(this)">
+          <div class="skill-acc-item__header">
+            <span class="skill-acc-item__code">A05</span>
+            <span class="skill-acc-item__name">ステークホルダーマネジメント</span>
+            <span class="skill-acc-item__icon">+</span>
+          </div>
+          <div class="skill-acc-item__body">
+            <p class="skill-acc-item__desc">関係者それぞれの立場・関心を理解し、合意を形成する力。大人・高校生・子どもが混在する場で実践的に学びます。</p>
+          </div>
+        </div>
+
+        <div class="skill-acc-item" onclick="toggleSkillAcc(this)">
+          <div class="skill-acc-item__header">
+            <span class="skill-acc-item__code">A06</span>
+            <span class="skill-acc-item__name">ファシリテーション</span>
+            <span class="skill-acc-item__icon">+</span>
+          </div>
+          <div class="skill-acc-item__body">
+            <p class="skill-acc-item__desc">場を整え、意見を引き出し、議論を前進させる力（傾聴・質問・論点の構造化）。振り返りの場で毎回実践します。</p>
+          </div>
+        </div>
+
+        <div class="skill-acc-item" onclick="toggleSkillAcc(this)">
+          <div class="skill-acc-item__header">
+            <span class="skill-acc-item__code">A07</span>
+            <span class="skill-acc-item__name">心理的安全性</span>
+            <span class="skill-acc-item__icon">+</span>
+          </div>
+          <div class="skill-acc-item__body">
+            <p class="skill-acc-item__desc">「失敗しても大丈夫」と思える環境をつくり、挑戦を促す力。「間違えた人が一番考えた」を合言葉に、安心の場を設計します。</p>
+          </div>
+        </div>
+
+        <div class="skill-acc-item" onclick="toggleSkillAcc(this)">
+          <div class="skill-acc-item__header">
+            <span class="skill-acc-item__code">A08</span>
+            <span class="skill-acc-item__name">組織・チームの類型</span>
+            <span class="skill-acc-item__icon">+</span>
+          </div>
+          <div class="skill-acc-item__body">
+            <p class="skill-acc-item__desc">チームの状態（発展段階・タイプ）を見極め、状況に合ったアプローチを選ぶ力。多様なゲーム形式の中で体感します。</p>
+          </div>
+        </div>
+
+        <div class="skill-acc-item" onclick="toggleSkillAcc(this)">
+          <div class="skill-acc-item__header">
+            <span class="skill-acc-item__code">A09</span>
+            <span class="skill-acc-item__name">未来思考</span>
+            <span class="skill-acc-item__icon">+</span>
+          </div>
+          <div class="skill-acc-item__body">
+            <p class="skill-acc-item__desc">変化を予測し、今すべきことを逆算して考える力。「このゲームを勝つには？」という問いが、未来から逆算する習慣を育てます。</p>
+          </div>
+        </div>
+
+        <div class="skill-acc-item" onclick="toggleSkillAcc(this)">
+          <div class="skill-acc-item__header">
+            <span class="skill-acc-item__code">A10</span>
+            <span class="skill-acc-item__name">ストーリーテリング</span>
+            <span class="skill-acc-item__icon">+</span>
+          </div>
+          <div class="skill-acc-item__body">
+            <p class="skill-acc-item__desc">自分の考えや経験を、相手の心に届く「物語」として伝える力。振り返りで「今日の成長を言葉にする」練習が積み重なります。</p>
+          </div>
+        </div>
+
+        <div class="skill-acc-item" onclick="toggleSkillAcc(this)">
+          <div class="skill-acc-item__header">
+            <span class="skill-acc-item__code">A11</span>
+            <span class="skill-acc-item__name">ビジョナリーリーダーシップ</span>
+            <span class="skill-acc-item__icon">+</span>
+          </div>
+          <div class="skill-acc-item__body">
+            <p class="skill-acc-item__desc">先を見据えた方向性を示し、周囲を引っ張っていく力。子どもが大人を指導する「逆転状況」が、リーダー性を引き出します。</p>
+          </div>
+        </div>
+
+        <div class="skill-acc-item" onclick="toggleSkillAcc(this)">
+          <div class="skill-acc-item__header">
+            <span class="skill-acc-item__code">A12</span>
+            <span class="skill-acc-item__name">デザイン思考</span>
+            <span class="skill-acc-item__icon">+</span>
+          </div>
+          <div class="skill-acc-item__body">
+            <p class="skill-acc-item__desc">相手の立場に立って課題を発見し、創造的な解決策を生み出す力。「相手はどう感じているか？」を常に問う遊びの設計に組み込まれています。</p>
+          </div>
+        </div>
+
+        <div class="skill-acc-item" onclick="toggleSkillAcc(this)">
+          <div class="skill-acc-item__header">
+            <span class="skill-acc-item__code">A13</span>
+            <span class="skill-acc-item__name">水平思考</span>
+            <span class="skill-acc-item__icon">+</span>
+          </div>
+          <div class="skill-acc-item__body">
+            <p class="skill-acc-item__desc">固定観念を外し、予想外の視点から問題を解く力。「ウミガメのスープ」など、常識を覆すゲームで自然と鍛えられます。</p>
+          </div>
+        </div>
+
+        <div class="skill-acc-item" onclick="toggleSkillAcc(this)">
+          <div class="skill-acc-item__header">
+            <span class="skill-acc-item__code">A14</span>
+            <span class="skill-acc-item__name">仮説思考</span>
+            <span class="skill-acc-item__icon">+</span>
+          </div>
+          <div class="skill-acc-item__body">
+            <p class="skill-acc-item__desc">情報が不完全な状態でも仮説を立て、検証しながら前に進む力。限られた情報でゲームを進める体験が、この力を育てます。</p>
+          </div>
+        </div>
+
+        <div class="skill-acc-item" onclick="toggleSkillAcc(this)">
+          <div class="skill-acc-item__header">
+            <span class="skill-acc-item__code">A15</span>
+            <span class="skill-acc-item__name">フェイルファースト</span>
+            <span class="skill-acc-item__icon">+</span>
+          </div>
+          <div class="skill-acc-item__body">
+            <p class="skill-acc-item__desc">小さく試して失敗から学び、素早く改善していく力。ゲームの中での失敗を「発見」として喜べる空気が、チャレンジ精神を育てます。</p>
+          </div>
+        </div>
+
+        <div class="skill-acc-item" onclick="toggleSkillAcc(this)">
+          <div class="skill-acc-item__header">
+            <span class="skill-acc-item__code">A16</span>
+            <span class="skill-acc-item__name">批判的思考・論理的思考</span>
+            <span class="skill-acc-item__icon">+</span>
+          </div>
+          <div class="skill-acc-item__body">
+            <p class="skill-acc-item__desc">情報の根拠を問い、筋道を立てて考え、正確に判断する力。「なぜそう思う？」を問い続ける講師のかかわりが、この習慣をつくります。</p>
+          </div>
+        </div>
+
+        <div class="skill-acc-item" onclick="toggleSkillAcc(this)">
+          <div class="skill-acc-item__header">
+            <span class="skill-acc-item__code">A17</span>
+            <span class="skill-acc-item__name">システム思考</span>
+            <span class="skill-acc-item__icon">+</span>
+          </div>
+          <div class="skill-acc-item__body">
+            <p class="skill-acc-item__desc">物事のつながりや全体像を把握し、本質的な原因にアプローチする力。ゲームの「なぜ負けたか」を構造で考える振り返りで育まれます。</p>
+          </div>
+        </div>
+
+        <div class="skill-acc-item" onclick="toggleSkillAcc(this)">
+          <div class="skill-acc-item__header">
+            <span class="skill-acc-item__code">A18</span>
+            <span class="skill-acc-item__name">アジリティ</span>
+            <span class="skill-acc-item__icon">+</span>
+          </div>
+          <div class="skill-acc-item__body">
+            <p class="skill-acc-item__desc">変化に素早く対応し、柔軟に行動を切り替える力。毎回変わるゲームと相手に合わせて戦略を変える経験が、この力を磨きます。</p>
+          </div>
+        </div>
+
+        <div class="skill-acc-item" onclick="toggleSkillAcc(this)">
+          <div class="skill-acc-item__header">
+            <span class="skill-acc-item__code">A19</span>
+            <span class="skill-acc-item__name">OODAループ</span>
+            <span class="skill-acc-item__icon">+</span>
+          </div>
+          <div class="skill-acc-item__body">
+            <p class="skill-acc-item__desc">観察→判断→意思決定→行動のサイクルを高速で回す力。テンポの速いゲームの中で、無意識にこのループを実践していきます。</p>
+          </div>
+        </div>
+
+        <div class="skill-acc-item" onclick="toggleSkillAcc(this)">
+          <div class="skill-acc-item__header">
+            <span class="skill-acc-item__code">A20</span>
+            <span class="skill-acc-item__name">リーン思考</span>
+            <span class="skill-acc-item__icon">+</span>
+          </div>
+          <div class="skill-acc-item__body">
+            <p class="skill-acc-item__desc">無駄を省き、本質的な価値に集中して成果を最大化する力。「何が一番大事か」を絞り込んで行動する習慣が、遊びの中で自然と育ちます。</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -1754,6 +2064,21 @@
     };
     renderCal();
   })();
+
+  /* 20 Skills accordion */
+  function toggleSkillAcc(item) {
+    item.classList.toggle('open');
+  }
+  function toggleAllSkills() {
+    var items = document.querySelectorAll('.skill-acc-item');
+    var btn = document.getElementById('skillToggleAll');
+    var anyOpen = Array.from(items).some(i => i.classList.contains('open'));
+    items.forEach(function(i) {
+      if (anyOpen) i.classList.remove('open');
+      else i.classList.add('open');
+    });
+    btn.textContent = anyOpen ? '▼ すべて展開して見る' : '▲ すべて閉じる';
+  }
 
   /* Form validation & submit (Web3Forms) */
   document.getElementById('taiken-form').addEventListener('submit', async function(e) {
