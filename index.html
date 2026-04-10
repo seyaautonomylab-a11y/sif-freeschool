@@ -998,6 +998,9 @@
       .feature-card--reverse { direction: ltr; }
       .skills-grid { grid-template-columns: 1fr; padding: 0 4px; }
       .skill-card { padding: 28px 20px; }
+      .skill-card__item { display: block; }
+      .skill-card__item::before { display: inline; margin-right: 4px; }
+      .navbar__inner { padding: 0 16px; }
       .flow-steps { grid-template-columns: 1fr 1fr; }
       .flow-steps::before { display: none; }
       .curr-grid { grid-template-columns: 1fr 1fr; }
@@ -1181,7 +1184,7 @@
         <div class="feature-card__num">01 — 遊びが最高の学びになる</div>
         <div class="feature-card__title">「本気で遊ぶ」から<br>本当の力が育つ</div>
         <div class="feature-card__text">
-          ゲームだから油断できない。<br class="br-sp">大人も本気でやってくる。<br class="br-sp">そのリアルな緊張感が、「考えなければならない」場面を<br class="br-sp">次々に生み出します。<br class="br-sp">楽しいのに、気づいたら力がついている——<br class="br-sp">それがSIFの仕掛けです。
+          ゲームだから油断できない。<br class="br-sp">大人も本気でやってくる。<br class="br-sp">そのリアルな緊張感が、<br class="br-sp">「考えなければならない」場面を<br class="br-sp">次々に生み出します。<br class="br-sp">楽しいのに、気づいたら力がついている——<br class="br-sp">それがSIFの仕掛けです。
         </div>
         <div class="feature-card__tags">
           <span class="tag">本気の遊び</span>
@@ -1257,7 +1260,7 @@
       <div class="skill-card reveal">
         <div class="skill-card__icon">🧠</div>
         <div class="skill-card__name">コンセプチュアルスキル</div>
-        <div class="skill-card__lead">情報から"大事なポイント"を見つけ、整理し、筋道を立てて考える力</div>
+        <div class="skill-card__lead">情報から"大事なポイント"を見つけ、<br class="br-sp">整理し、筋道を立てて考える力</div>
         <div class="skill-card__list">
           <div class="skill-card__item"><strong>まとめる力（抽象化）</strong><br class="br-sp">バラバラな情報から共通点を見つける</div>
           <div class="skill-card__item"><strong>仕分ける力（構造化）</strong><br class="br-sp">原因と結果、大事と不要を整理する</div>
@@ -1275,7 +1278,7 @@
       <div class="skill-card reveal reveal-d2">
         <div class="skill-card__icon">🤝</div>
         <div class="skill-card__name">ヒューマンスキル</div>
-        <div class="skill-card__lead">人と関わりながら、物事を前に進めるための"行動の力"</div>
+        <div class="skill-card__lead">人と関わりながら、<br class="br-sp">物事を前に進めるための"行動の力"</div>
         <div class="skill-card__list">
           <div class="skill-card__item"><strong>話して前に進める力（対話・整理）</strong><br class="br-sp">意見を引き出し、まとめる</div>
           <div class="skill-card__item"><strong>協力を設計する力（チーム運営）</strong><br class="br-sp">役割分担・合意形成・巻き込み</div>
