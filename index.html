@@ -1179,7 +1179,11 @@
     =========================== */
     @media (max-width: 768px) {
       .navbar__links { display: none; }
-      .section { padding: 64px 0; }
+      .navbar__inner { padding: 0 16px; }
+      .navbar__cta { font-size: 12px; padding: 8px 16px; }
+      .section { padding: 56px 0; }
+      .container { padding: 0 16px; }
+      .container--wide { padding: 0 16px; }
       .compare-wrap { grid-template-columns: 1fr; }
       .feature-card { grid-template-columns: 1fr; }
       .feature-card--reverse { direction: ltr; }
@@ -1187,24 +1191,45 @@
       .skill-card { padding: 28px 20px; }
       .skill-card__item { display: block; }
       .skill-card__item::before { display: inline; margin-right: 4px; }
-      .navbar__inner { padding: 0 24px; }
       .flow-steps { grid-template-columns: 1fr 1fr; }
       .flow-steps::before { display: none; }
       .curr-grid { grid-template-columns: 1fr 1fr; }
       .gallery-grid { grid-template-columns: 1fr 1fr; }
       .voices { grid-template-columns: 1fr; }
-      .stats-strip__inner { grid-template-columns: repeat(3,1fr); }
-      .stat-item:nth-child(3) { border-right: none; }
-      .stat-item:nth-child(4),
-      .stat-item:nth-child(5) { border-top: 1px solid rgba(255,255,255,.1); }
+      /* stats: 2×2グリッド */
+      .stats-strip__inner { grid-template-columns: 1fr 1fr; }
+      .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,.1); padding: 14px 8px; }
+      .stat-item:nth-child(odd) { border-right: 1px solid rgba(255,255,255,.1); }
+      .stat-item:nth-last-child(-n+2) { border-bottom: none; }
+      .stat-item__num { font-size: 26px; }
       .form-box { padding: 28px 20px; }
+      /* trust bar */
+      .trust-bar__inner { gap: 12px; }
+      .trust-bar__inner span { font-size: 12px; }
+      /* hero */
+      .hero__content { padding: 88px 20px 56px; }
+      .hero__sub { font-size: 15px; line-height: 1.85; }
+      .hero__actions { flex-direction: column; align-items: center; gap: 12px; }
+      .hero__actions .btn { width: 100%; max-width: 320px; text-align: center; padding: 15px 24px; font-size: 15px; }
+      /* section */
+      .section-title { font-size: clamp(22px, 5.5vw, 36px); }
+      .section-lead { font-size: 15px; }
+      .callout-box { padding: 28px 20px; }
     }
     @media (max-width: 480px) {
-      .hero__title { font-size: 28px; }
+      .hero__title { font-size: 30px; line-height: 1.4; }
+      .hero__content { padding: 80px 16px 48px; }
+      .hero__eyebrow { font-size: 11px; padding: 5px 14px; margin-bottom: 20px; }
       .curr-grid { grid-template-columns: 1fr; }
       .gallery-grid { grid-template-columns: 1fr; }
       .flow-steps { grid-template-columns: 1fr; }
-      .stats-strip__inner { grid-template-columns: 1fr 1fr; }
+      .container { padding: 0 14px; }
+      .container--wide { padding: 0 14px; }
+      .section-title { font-size: 22px; }
+      .section-lead { font-size: 14px; }
+      .compare-card { padding: 24px 18px; }
+      .feature-card__title { font-size: 20px; }
+      .btn { font-size: 14px; }
     }
   </style>
 </head>
@@ -1237,8 +1262,8 @@
       <span class="accent">AI時代の主役</span>へ
     </h1>
     <p class="hero__sub">
-      学校教育では育てにくい「思考力」×「コミュニケーション力」×「行動力」を、<br>
-      世代を超えて遊びながら磨く場所です。
+      学校教育では育てにくい<br class="br-sp">「思考力」×「コミュニケーション力」×「行動力」を、<br>
+      世代を超えて遊びながら<br class="br-sp">磨く場所です。
     </p>
     <div class="hero__actions">
       <a href="#cta" class="btn btn-primary">無料体験を申し込む →</a>
@@ -1291,8 +1316,10 @@
       <h2 class="section-title">AI時代に必要な力を、<br>学校は教えられているか？</h2>
       <div class="divider"></div>
       <p class="section-lead">
-        AIが「正解を出す力」を代替する時代、<br class="br-sp">求められるのは「考え、動き、人を動かす力」です。<br class="br-sp">
-        その力は教室では育ちにくい。<br class="br-sp">私たちはその問いから出発しました。
+        AIが「正解を出す力」を代替する時代、<br>
+        求められるのは<br class="br-sp">「考え、動き、人を動かす力」です。<br>
+        その力は教室では育ちにくい。<br>
+        私たちはその問いから出発しました。
       </p>
     </div>
 
@@ -1338,8 +1365,8 @@
     </div>
 
     <div class="callout-box reveal">
-      <div class="callout-box__text">思考力・コミュニケーション力・行動力——<br class="br-sp">AI時代に人間だけが持てる武器</div>
-      <div class="callout-box__sub">AIが「答え」を出す時代だからこそ、「問いを立て・人を動かし・実行する力」が差を生む。</div>
+      <div class="callout-box__text">思考力・コミュニケーション力・行動力——<br>AI時代に人間だけが持てる武器</div>
+      <div class="callout-box__sub">AIが「答え」を出す時代だからこそ、<br class="br-sp">「問いを立て・人を動かし・実行する力」が差を生む。</div>
     </div>
 
   </div>
@@ -1351,7 +1378,7 @@
   <div class="container">
     <div class="text-center reveal">
       <div class="section-label">WHAT — SIFフリースクールとは</div>
-      <h2 class="section-title">思考力・コミュニケーション力・行動力を<br>遊びながら身につける場</h2>
+      <h2 class="section-title">思考力・コミュニケーション力・行動力を<br class="br-pc">遊びながら身につける場</h2>
       <div class="divider"></div>
     </div>
   </div>
@@ -1427,7 +1454,8 @@
       <h2 class="section-title section-title--white">AI時代を生き抜く<br class="br-sp">3つの力を、遊びながら育てる</h2>
       <div class="divider"></div>
       <p class="section-lead section-lead--white">
-        AIに代替されない力——<br class="br-sp">「思考力」「コミュニケーション力」「行動力」を、<br class="br-sp">
+        AIに代替されない力——<br>
+        「思考力」「コミュニケーション力」「行動力」を、<br>
         遊びの中で自然と、同時に磨きます。
       </p>
     </div>
