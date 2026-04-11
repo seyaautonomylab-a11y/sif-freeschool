@@ -490,6 +490,68 @@
       gap: 8px;
       margin-top: 20px;
     }
+
+    /* ===========================
+       SECTION: WHAT (3列中央揃え)
+    =========================== */
+    .what-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .what-card {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--gray-light);
+      box-shadow: var(--shadow);
+      text-align: center;
+      transition: transform .3s ease;
+    }
+    .what-card:hover { transform: translateY(-4px); }
+    .what-card__img {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+    }
+    .what-card__img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .what-card__body {
+      padding: 28px 22px 32px;
+    }
+    .what-card__num {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .2em;
+      color: var(--orange);
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+    .what-card__title {
+      font-family: var(--serif);
+      font-size: clamp(17px, 2vw, 20px);
+      font-weight: 700;
+      line-height: 1.45;
+      margin-bottom: 14px;
+      color: var(--dark);
+    }
+    .what-card__text {
+      font-size: 14px;
+      line-height: 1.9;
+      color: #555;
+      margin-bottom: 16px;
+    }
+    .what-card__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+    }
+
     .tag {
       font-size: 11px;
       font-weight: 700;
@@ -1185,6 +1247,7 @@
       .container { padding: 0 16px; }
       .container--wide { padding: 0 16px; }
       .compare-wrap { grid-template-columns: 1fr; }
+      .what-grid { grid-template-columns: 1fr; }
       .feature-card { grid-template-columns: 1fr; }
       .feature-card--reverse { direction: ltr; }
       .skills-grid { grid-template-columns: 1fr; padding: 0 4px; }
@@ -1374,71 +1437,80 @@
 
 
 <!-- ===== SECTION: WHAT ===== -->
-<section class="section" id="about" style="background:#fff;">
+<section class="section section--off" id="about">
   <div class="container">
     <div class="text-center reveal">
       <div class="section-label">WHAT — SIFフリースクールとは</div>
-      <h2 class="section-title">思考力×コミュニケーション×行動力を<br class="br-pc">遊びながら身につける場</h2>
+      <h2 class="section-title">思考力×コミュニケーション×行動力を<br>遊びながら身につける場</h2>
       <div class="divider"></div>
     </div>
-  </div>
 
-  <div class="container--wide" style="margin-top:48px;">
-    <!-- Card 1 -->
-    <div class="feature-card reveal">
-      <div class="feature-card__img">
-        <img src="LP_写真/LP_TOP.png" alt="世代を超えてゲームを楽しむ様子" onerror="this.parentElement.innerHTML='<div class=\'feature-card__img-placeholder\'><div class=\'ph-icon\'>👥</div><p>子ども・高校生・大人が<br>テーブルを囲んでゲームしている様子</p></div>'">
-      </div>
-      <div class="feature-card__body">
-        <div class="feature-card__num">01 — 遊びが最高の学びになる</div>
-        <div class="feature-card__title">「遊ぶように学ぶ」から<br>本物の思考力が育つ</div>
-        <div class="feature-card__text">
-          ゲームだから油断できない。<br class="br-sp">大人も本気でやってくる。<br class="br-sp">そのリアルな緊張感が、<br class="br-sp">「どうすれば勝てるか」を<br class="br-sp">真剣に考える場面を次々に生み出します。<br class="br-sp">楽しいのに、気づいたら思考力が鍛えられている——<br class="br-sp">それがSIFフリースクールの仕掛けです。
+    <div class="what-grid">
+      <!-- Card 1: 思考力 -->
+      <div class="what-card reveal">
+        <div class="what-card__img">
+          <img src="LP_写真/LP_TOP.png" alt="世代を超えてゲームを楽しむ様子" onerror="this.parentElement.innerHTML='<div class=\'feature-card__img-placeholder\'><div class=\'ph-icon\'>👥</div><p>ゲームを楽しむ様子</p></div>'">
         </div>
-        <div class="feature-card__tags">
-          <span class="tag">本気の遊び</span>
-          <span class="tag">内発的動機</span>
-          <span class="tag">思考力</span>
+        <div class="what-card__body">
+          <div class="what-card__num">01 — 思考力</div>
+          <div class="what-card__title">「遊ぶように学ぶ」から<br>本物の思考力が育つ</div>
+          <div class="what-card__text">
+            ゲームだから油断できない。大人も本気でやってくる。<br>
+            そのリアルな緊張感が「どうすれば勝てるか」を<br>
+            真剣に考える場面を生み出します。<br>
+            楽しいのに、気づいたら思考力が鍛えられている。<br>
+            それがSIFフリースクールの仕掛けです。
+          </div>
+          <div class="what-card__tags">
+            <span class="tag">本気の遊び</span>
+            <span class="tag">内発的動機</span>
+            <span class="tag">思考力</span>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- Card 2 (reverse) -->
-    <div class="feature-card feature-card--reverse reveal">
-      <div class="feature-card__img">
-        <img src="LP_写真/マーケティング.png" alt="小学生・高校生・大人が同じテーブルを囲んで活動する様子" onerror="this.parentElement.innerHTML='<div class=\'feature-card__img-placeholder\'><div class=\'ph-icon\'>🌍</div><p>小学生・高校生・大人が<br>同じテーブルで遊ぶ写真</p></div>'">
-      </div>
-      <div class="feature-card__body">
-        <div class="feature-card__num">02 — 世代融合のコミュニケーション</div>
-        <div class="feature-card__title">3世代が対等に混ざる<br class="br-pc">本物の<br class="br-sp">コミュニケーション</div>
-        <div class="feature-card__text">
-          小学生・高校生・大人が<br class="br-sp">対等に同じゲームを楽しみます。<br class="br-sp">
-          年下が年上に勝つこともある。<br class="br-sp">子どもが「先生」になる瞬間がある。<br class="br-sp">
-          そのダイナミクスが、<br class="br-sp">AIには代替できない<br class="br-sp">人間らしいコミュニケーション力を育てます。
+      <!-- Card 2: コミュニケーション -->
+      <div class="what-card reveal reveal-d2">
+        <div class="what-card__img">
+          <img src="LP_写真/マーケティング.png" alt="小学生・高校生・大人が同じテーブルを囲んで活動する様子" onerror="this.parentElement.innerHTML='<div class=\'feature-card__img-placeholder\'><div class=\'ph-icon\'>🌍</div><p>同じテーブルで遊ぶ様子</p></div>'">
         </div>
-        <div class="feature-card__tags">
-          <span class="tag">世代融合</span>
-          <span class="tag">コミュニケーション</span>
-          <span class="tag">対等な関係</span>
+        <div class="what-card__body">
+          <div class="what-card__num">02 — コミュニケーション</div>
+          <div class="what-card__title">3世代が対等に混ざる<br>本物のコミュニケーション</div>
+          <div class="what-card__text">
+            小学生・高校生・大人が対等に同じゲームを楽しみます。<br>
+            年下が年上に勝つこともある。<br>
+            子どもが「先生」になる瞬間がある。<br>
+            そのダイナミクスが、AIには代替できない<br>
+            人間らしいコミュニケーション力を育てます。
+          </div>
+          <div class="what-card__tags">
+            <span class="tag">世代融合</span>
+            <span class="tag">コミュニケーション</span>
+            <span class="tag">対等な関係</span>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- Card 3 -->
-    <div class="feature-card reveal">
-      <div class="feature-card__img">
-        <img src="LP_写真/ディスカッション.png" alt="大人と子どもが対話・振り返りをしている様子" onerror="this.parentElement.innerHTML='<div class=\'feature-card__img-placeholder\'><div class=\'ph-icon\'>💬</div><p>振り返りで言語化している<br>子どもたちの様子</p></div>'">
-      </div>
-      <div class="feature-card__body">
-        <div class="feature-card__num">03 — 振り返りで行動力を定着</div>
-        <div class="feature-card__title">「やってみた」を<br>次の行動につなげる</div>
-        <div class="feature-card__text">
-          毎回の最後に10分間の振り返りがあります。<br class="br-sp">「今日どう動いたか」「次は何を試すか」を<br class="br-sp">自分の言葉で語ることで、<br class="br-sp">考えて動く習慣——行動力が着実に育ちます。
+      <!-- Card 3: 行動力 -->
+      <div class="what-card reveal reveal-d3">
+        <div class="what-card__img">
+          <img src="LP_写真/ディスカッション.png" alt="大人と子どもが対話・振り返りをしている様子" onerror="this.parentElement.innerHTML='<div class=\'feature-card__img-placeholder\'><div class=\'ph-icon\'>💬</div><p>振り返りの様子</p></div>'">
         </div>
-        <div class="feature-card__tags">
-          <span class="tag">行動力</span>
-          <span class="tag">振り返り</span>
-          <span class="tag">主体性</span>
+        <div class="what-card__body">
+          <div class="what-card__num">03 — 行動力</div>
+          <div class="what-card__title">「やってみた」を<br>次の行動につなげる</div>
+          <div class="what-card__text">
+            毎回の最後に10分間の振り返りがあります。<br>
+            「今日どう動いたか」「次は何を試すか」を<br>
+            自分の言葉で語ることで、<br>
+            考えて動く習慣——行動力が着実に育ちます。
+          </div>
+          <div class="what-card__tags">
+            <span class="tag">行動力</span>
+            <span class="tag">振り返り</span>
+            <span class="tag">主体性</span>
+          </div>
         </div>
       </div>
     </div>
